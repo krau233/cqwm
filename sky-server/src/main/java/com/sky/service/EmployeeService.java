@@ -21,4 +21,6 @@ public interface EmployeeService {
     PageResult pageQuery(EmployeePageQueryDTO dto);
 
     void startOrStop(Integer status, Long id);
+
+    Employee getEmployeeById(Long id);
 }
