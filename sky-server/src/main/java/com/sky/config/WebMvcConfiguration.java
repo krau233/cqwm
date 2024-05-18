@@ -31,6 +31,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     @Autowired
     private JwtTokenAdminInterceptor jwtTokenAdminInterceptor;
 
+    static final String imagePath = System.getProperty("user.dir")+"/sky-server/image/";
+
     /**
      * 注册自定义拦截器
      *
@@ -72,6 +74,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         log.info("开始设置静态资源映射...");
         registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        registry.addResourceHandler("/image/**").addResourceLocations("file:"+imagePath);
     }
 
     @Override
